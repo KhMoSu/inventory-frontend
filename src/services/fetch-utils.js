@@ -1,5 +1,11 @@
-import { client, checkError } from './client';
+// import { client, checkError } from './client';
 
 export async function getAll() {
-  return client.auth.session();
+
+  const res = await fetch('http://localhost/7890/api/v1/items');
+  const items = await res.json();
+
+  return items;
 }
+
+//post and put more complex 
