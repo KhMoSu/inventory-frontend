@@ -2,13 +2,16 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { getAll } from './services/fetch-utils';
 import Item from './Item';
+
 export default function List() {
   const [items, setItems] = useState([]);
   
 
   useEffect(() => {
     async function load(){
+    //   console.log('getting to this first line?');
       const res = await getAll();
+      console.log(res);
       setItems(res);
     } 
     load();
