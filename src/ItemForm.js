@@ -8,9 +8,13 @@ export default function ItemForm() {
   const { id } = useParams();
   const [itemForm, setItemForm] = useState({
     item: '',
-    amount: '',
+    amount: 0,
     bought: false,
   });
+  async function handleSubmit(e){
+    e.preventDefault();
+    await updateById(id, itemForm);
+  }
 
   useEffect(() => {
     async function load() {
@@ -20,5 +24,20 @@ export default function ItemForm() {
     load();
   }, [id]);
 
-  return <h1>{itemForm.item}</h1>;
+  return (
+    <div className='item-form'>
+      <h1>{itemForm.item}</h1>
+      <form onSubmit={handleSubmit}>
+        <label>
+        Amount
+          <input 
+            value={itemForm.amount} onChange={(e) => 
+              setItemForm({ 
+                ...ItemForm, 
+                amount: e.target.value })}/>
+          <button> Update! </button>
+        </label>
+      </form>
+    </div>
+  );
 }
