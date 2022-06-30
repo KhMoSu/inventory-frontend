@@ -28,4 +28,16 @@ export async function updateById(id, item) {
   return res.json();
 }
 
+export async function deleteItem(id) {
+  const res = await fetch(`http://localhost:7890/api/v1/items/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    credentials: 'include',
+    mode: 'cors',
+  });
+  return res.json();
+}
+
 //post and put more complex

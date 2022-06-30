@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { updateById, getById } from './services/fetch-utils';
+import { updateById, getById, deleteItem } from './services/fetch-utils';
 
 import React from 'react';
 
@@ -11,18 +11,12 @@ export default function ItemForm() {
     amount: 0,
     bought: false,
   });
+  async function handleDelete(){
+    await deleteItem(id);
+  }
   async function handleSubmit(e){
     e.preventDefault();
     await updateById(id, itemForm);
-  }
-  async function handleBought(e) {
-    e.preventDefault();
-    if (itemForm.bought === false){
-      setItemForm.bought(true);
-    } else {
-      setItemForm.bought(false);
-    }
-    await handleSubmit();
   }
   useEffect(() => {
     async function load() {
@@ -50,9 +44,8 @@ export default function ItemForm() {
           setItemForm({ 
             ...itemForm, 
             bought: !itemForm.bought })}/>
-        {/* <button onClick={handleBought}> Purchased </button> */}
-
       </form>
+      <button onClick={handleDelete} >❌</button>
     </div>
   );
 }
