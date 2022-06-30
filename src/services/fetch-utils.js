@@ -1,6 +1,5 @@
-// import { client, checkError } from './client';
 
-import { put } from 'superagent';
+
 
 export async function getAll() {
   const res = await fetch('http://localhost:7890/api/v1/items');
