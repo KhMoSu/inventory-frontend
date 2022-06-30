@@ -9,7 +9,6 @@ export default function List() {
   useEffect(() => {
     async function load() {
       const res = await getAll();
-      console.log(res);
       setItems(res);
     }
     load();

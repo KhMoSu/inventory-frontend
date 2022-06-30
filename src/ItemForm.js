@@ -15,7 +15,15 @@ export default function ItemForm() {
     e.preventDefault();
     await updateById(id, itemForm);
   }
-
+  async function handleBought(e) {
+    e.preventDefault();
+    if (itemForm.bought === false){
+      setItemForm.bought(true);
+    } else {
+      setItemForm.bought(false);
+    }
+    await handleSubmit();
+  }
   useEffect(() => {
     async function load() {
       const res = await getById(id);
@@ -33,10 +41,17 @@ export default function ItemForm() {
           <input 
             value={itemForm.amount} onChange={(e) => 
               setItemForm({ 
-                ...ItemForm, 
+                ...itemForm, 
                 amount: e.target.value })}/>
-          <button> Update! </button>
+          <button>Update amount</button>
         </label>
+      
+        <input type="checkbox" value={itemForm.bought} onChange={(e) => 
+          setItemForm({ 
+            ...itemForm, 
+            bought: !itemForm.bought })}/>
+        {/* <button onClick={handleBought}> Purchased </button> */}
+
       </form>
     </div>
   );

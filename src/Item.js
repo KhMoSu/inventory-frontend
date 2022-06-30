@@ -10,7 +10,6 @@ export default function Item({ item }) {
         <p>Item Name: {item.item} </p>
         <p>Amount: {amount} </p>
         <p>Bought: {bought ? 'yes' : 'no'}</p>
-        {/* <input type='checkbox'>Bought ${bought}</input> */}
       </div>
     </Link>
   );
