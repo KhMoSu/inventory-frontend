@@ -40,7 +40,7 @@ export default function ItemForm() {
           <button>Update amount</button>
         </label>
       
-        <input type="checkbox" value={itemForm.bought} onChange={(e) => 
+        <input type="checkbox" value={itemForm.bought} onChange={() => 
           setItemForm({ 
             ...itemForm, 
             bought: !itemForm.bought })}/>

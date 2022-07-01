@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { deleteItem, getById } from './services/fetch-utils';
+
 
 export default function Item({ item }) {
 
