@@ -2,21 +2,21 @@
 
 
 export async function getAll() {
-  const res = await fetch('http://localhost:7890/api/v1/items');
+  const res = await fetch('https://inventory-backend2.herokuapp.com/api/v1/items');
   const items = await res.json();
 
   return items;
 }
 
 export async function getById(id) {
-  const res = await fetch(`http://localhost:7890/api/v1/items/${id}`);
+  const res = await fetch(`https://inventory-backend2.herokuapp.com/api/v1/items/${id}`);
   const item = await res.json();
 
   return item;
 }
 
 export async function updateById(id, item) {
-  const res = await fetch(`http://localhost:7890/api/v1/items/${id}`, {
+  const res = await fetch(`https://inventory-backend2.herokuapp.com/api/v1/items/${id}`, {
     method: 'PUT',
     headers: {
       'Content-type': 'application/json',
@@ -29,7 +29,7 @@ export async function updateById(id, item) {
 }
 
 export async function deleteItem(id) {
-  const res = await fetch(`http://localhost:7890/api/v1/items/${id}`, {
+  const res = await fetch(`https://inventory-backend2.herokuapp.com/api/v1/items/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-type': 'application/json',
